@@ -5,6 +5,8 @@ import { AuthModule } from './auth/auth.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { User } from './users/user.entity';
 import { Subscription } from './subscriptions/subscription.entity';
+import { UsersModule } from './users/users.module';
+import { AiModule } from './ai/ai.module';
 
 @Module({
   imports: [
@@ -23,6 +25,8 @@ import { Subscription } from './subscriptions/subscription.entity';
     }),
     AuthModule,
     SubscriptionsModule,
+    UsersModule,
+    AiModule,
   ],
 })
 export class AppModule {}
