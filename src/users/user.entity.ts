@@ -21,6 +21,9 @@ export class User {
   @Column({ type: 'varchar', nullable: true })
   refreshToken?: string | null;
 
+  @Column({ type: 'varchar', nullable: true })
+  fcmToken?: string | null;
+
   @Column({ type: 'timestamp', nullable: true })
   refreshTokenExpires?: Date | null;
 

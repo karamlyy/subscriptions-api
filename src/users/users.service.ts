@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { UserResponseDto } from './dto/user-response.dto';
+import { UpdateFcmTokenDto } from './dto/update-fcm-token.dto';
 
 @Injectable()
 export class UsersService {
@@ -27,6 +28,20 @@ export class UsersService {
     dto.createdAt = user.createdAt;
 
     return dto;
+  }
+
+  async updateFcmToken(
+    userId: number,
+    dto: UpdateFcmTokenDto,
+  ): Promise<void> {
+    const user = await this.usersRepo.findOne({ where: { id: userId } });
+
+    if (!user) {
+      throw new NotFoundException('User tapılmadı');
+    }
+
+    user.fcmToken = dto.fcmToken;
+    await this.usersRepo.save(user);
   }
 }
 

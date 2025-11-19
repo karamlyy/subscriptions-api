@@ -7,12 +7,15 @@ import { User } from './users/user.entity';
 import { Subscription } from './subscriptions/subscription.entity';
 import { UsersModule } from './users/users.module';
 import { AiModule } from './ai/ai.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { NotificationsModule } from './notification/notifications.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -27,6 +30,7 @@ import { AiModule } from './ai/ai.module';
     SubscriptionsModule,
     UsersModule,
     AiModule,
+    NotificationsModule,
   ],
 })
 export class AppModule {}
