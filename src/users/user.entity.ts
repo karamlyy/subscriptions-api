@@ -13,7 +13,7 @@ export class User {
   email: string;
 
   @Column()
-  password: string; // hashed
+  password: string; 
 
   @OneToMany(() => Subscription, (sub) => sub.user)
   subscriptions: Subscription[];

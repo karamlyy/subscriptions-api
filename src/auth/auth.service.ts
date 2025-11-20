@@ -141,7 +141,7 @@ export class AuthService {
     const hashed = await bcrypt.hash(refreshToken, 10);
 
     const expires = new Date();
-    expires.setDate(expires.getDate() + 7); // 7 gün
+    expires.setDate(expires.getDate() + 7); 
 
     await this.usersRepo.update(
       { id: userId },
@@ -162,7 +162,6 @@ export class AuthService {
 
   private signRefreshToken(userId: number, email: string): Promise<string> {
     const payload = { sub: userId, email };
-    // 7 gün saniyə olaraq
     return this.jwtService.signAsync(payload, {
       secret: this.REFRESH_SECRET,
       expiresIn: 7 * 24 * 60 * 60,

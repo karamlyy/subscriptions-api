@@ -7,6 +7,7 @@ import { User } from './users/user.entity';
 import { Subscription } from './subscriptions/subscription.entity';
 import { UsersModule } from './users/users.module';
 import { AiModule } from './ai/ai.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -21,12 +22,13 @@ import { AiModule } from './ai/ai.module';
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
       entities: [User, Subscription],
-      synchronize: true, // dev üçün ok
+      synchronize: true, 
     }),
     AuthModule,
     SubscriptionsModule,
     UsersModule,
     AiModule,
+    CategoriesModule,
   ],
 })
 export class AppModule {}

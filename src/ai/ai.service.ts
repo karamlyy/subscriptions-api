@@ -71,7 +71,6 @@ Dil: ${language}.
 
       return text;
     } catch (error) {
-      // Burda istersen log da ata bilərsən
       throw new InternalServerErrorException(
         'AI cancel help generation failed',
       );

@@ -7,9 +7,9 @@ export class CancelHelpDto {
 
   @IsString()
   @IsOptional()
-  platform?: string; // məsələn: 'iOS', 'Android', 'Web', 'Apple ID'...
+  platform?: string; 
 
   @IsString()
   @IsOptional()
-  locale?: string; // məsələn: 'az', 'en'
+  locale?: string; 
 }

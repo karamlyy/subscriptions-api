@@ -21,7 +21,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Hazırkı istifadəçinin profili' })
   @ApiOkResponse({
     description: 'İstifadəçi profili qaytarıldı',
-    type: UserResponseDto, // real cavab BaseResponse<UserResponseDto> olacaq
+    type: UserResponseDto, 
   })
   async getMe(@Req() req: any): Promise<BaseResponse<UserResponseDto>> {
     const user = await this.usersService.getMe(req.user.userId);
